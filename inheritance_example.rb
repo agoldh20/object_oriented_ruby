@@ -2,7 +2,7 @@ class Vehicle
   attr_reader :speed, :direction
   attr_writer :direction
 
-  def initialize(input_options)
+  def initialize
     @speed = 0
     @direction = 'north'
   end
@@ -23,7 +23,7 @@ end
 class Car < Vehicle
 
   def initialize(input_options)
-    super
+    super()
     @fuel = input_options[:fuel]
     @make = input_options[:make]
     @model = input_options[:model]
@@ -49,7 +49,7 @@ end
 
 class Bike < Vehicle
   def initialize(input_options)
-    super
+    super()
     @type = input_options[:type]
     @weight = input_options[:weight]
     @speed_gear = input_options[:speed_gear]
@@ -72,8 +72,16 @@ class Bike < Vehicle
   end
 end
 
-car = Car.new({fuel: "gas", make: "Toyota", model: "Land Cruiser"})
-bike = Bike.new({type: "mountain", weight: "light", speed_gear: "10" })
+car = Car.new(
+              fuel: "gas", 
+              make: "Toyota", 
+              model: "Land Cruiser"
+              )
+bike = Bike.new(
+                type: "mountain", 
+                weight: "light", 
+                speed_gear: "10" 
+                )
 
 p car
 p bike

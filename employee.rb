@@ -1,14 +1,3 @@
-# employee_1 = ["Jimmy", "Stewart", 70000, true]
-# employee_2 = ["Susan", "Messing", 80000, true]
-
-# puts "#{employee_2[0]} #{employee_2[1]} makes #{employee_2[2]} a year"
-
-# employee_1 = {:first_name => "Jimmy", :last_name => "Stewart", :salary => 70000, :active => true}
-# employee_2 = {first_name: "Susan", last_name: "Messing", salary: 80000, active: true}
-
-# puts "#{employee_2[:first_name]} #{employee_2[:last_name]} makes #{employee_2[:salary]} a year."
-# puts "#{employee_1[:first_name]} #{employee_1[:last_name]} makes #{employee_1[:salary]} a year."
-
 class Employee
   attr_reader :first_name, :last_name, :salary
   attr_writer :active
@@ -25,46 +14,6 @@ class Employee
   end
 
   def give_annual_raise
-    return @salary = @salary * 1.05
+    @salary = 1.05 * @salary
   end
-
-  def active=(new_active)
-    @active = new_active
-  end
-
 end
-
-class Manager < Employee
-
-  def initialize(input_options)
-    super(input_options)
-    @employees = input_options[:employees]
-  end
-  
-
-  def send_report
-    puts "Sending email"
-    #code
-    puts "Email sent"
-  end
-
-end
-
-employee_1 = Employee.new({first_name: "Jimmy",last_name: "Stewart",salary: 70000,active: true})
-employee_2 = Employee.new({first_name: "Susan",last_name: "Messing",salary: 80000,active: true})
-
-p employee_1
-p employee_2
-
-manager = Manager.new(
-                      first_name: "Bob",
-                      last_name: "Hoskins",
-                      salary: 1000000,
-                      active: true
-                      employees: [employee_1, employee_2])
-
-p employee_1
-puts "----------"
-p manager
-puts "----------"
-
